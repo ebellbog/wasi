@@ -1,0 +1,88 @@
+
+@darkBlue: #5479F7;
+@lightBlue: #8FA8FB;
+@peach: #EEAEC1;
+@mint: #C3E0E5;
+@lavender: #E3CBFE;
+@goldenrod: #FFCB73;
+
+@font-face {
+    font-family: Agrandir;
+    src: url(../fonts/Agrandir-Narrow.otf);
+}
+
+@mainFont: 'Bricolage Grotesque', sans-serif;
+@lightWeight: 200;
+@normalWeight: 400;
+@boldWeight: 800;
+
+body {
+    background-color: @darkBlue;
+    font-family: @mainFont;
+    overflow: hidden;
+
+    h1 {
+        color: white;
+        text-align: center;
+        font-size: 5.5em;
+        font-weight: @lightWeight;
+        margin-top: -.1em;
+    }
+}
+
+#wasi-logo {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 1.5em;
+    display: block;
+}
+
+#translate-btn {
+    position: absolute;
+    top: .75em;
+    right: .2em;
+}
+
+#filter-wrapper {
+    margin-top: 3.5em;
+    width: 100%;
+    text-align: center;
+}
+
+#filters {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+
+    .filter-btn {
+        position: relative;
+        display: inline-block;
+
+        border-radius: .6em;
+        border: 2px solid white;
+        width: 100px;
+        padding: .65em .2em;
+        margin: 0 .5em 1.2em .5em;
+
+
+        color: white;
+        font-size: 3.2em;
+
+        cursor: pointer;
+        transition: background-color .3s;
+        &:hover {
+            background-color: fade(white, 30%);
+        }
+
+        .filter-label {
+            position: absolute;
+            top: 125px;
+            left: 0;
+
+            width: 100%;
+            text-align: center;
+            font-size: .4em;
+            font-weight: @boldWeight;
+        }
+    }
+}
