@@ -81,8 +81,17 @@ body {
   font-weight: 800;
   font-size: 1.2em;
 }
+.cbo-card .card-body .card-left hr {
+  border: 0.5px solid white;
+}
 .cbo-card .card-body .card-right {
   font-weight: 200;
+  font-style: italic;
+  line-height: 1.3em;
+}
+.cbo-card .card-body .cbo-address {
+  margin-top: 0.5em;
+  font-size: 0.9em;
 }
 .cbo-card .card-footer {
   text-align: center;

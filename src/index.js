@@ -13,7 +13,10 @@ $(document).ready(() => {
     });
 
     $('#cbo-content').html(
-        cboData.map((data) => CboTemplate(data)).join('')
+        cboData.map((data) => {
+            data.address = data.address.split(',').join('<br>');
+            return CboTemplate(data);
+        }).join('')
     );
 });
 
