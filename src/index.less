@@ -16,20 +16,28 @@
 @normalWeight: 400;
 @boldWeight: 800;
 
+@borderRadius: .6em;
+
 body {
     background-color: @darkBlue;
     font-family: @mainFont;
-    overflow: hidden;
-
-    h1 {
-        color: white;
-        text-align: center;
-        font-size: 5.5em;
-        font-weight: @lightWeight;
-        margin-top: -.1em;
-    }
+    padding: .5em;
 }
 
+#translate-btn {
+    position: fixed;
+    top: .4em;
+    right: .4em;
+}
+
+#wasi-name {
+    color: white;
+    text-align: center;
+    font-size: 5.5em;
+    font-weight: @lightWeight;
+    margin-top: -.1em;
+    margin-bottom: 0;
+}
 #wasi-logo {
     width: 300px;
     margin: 0 auto;
@@ -37,18 +45,11 @@ body {
     display: block;
 }
 
-#translate-btn {
-    position: absolute;
-    top: .75em;
-    right: .2em;
-}
-
 #filter-wrapper {
-    margin-top: 3.5em;
+    margin-top: 3em;
     width: 100%;
     text-align: center;
 }
-
 #filters {
     display: inline-grid;
     grid-template-columns: 1fr 1fr;
@@ -58,7 +59,7 @@ body {
         position: relative;
         display: inline-block;
 
-        border-radius: .6em;
+        border-radius: @borderRadius;
         border: 2px solid white;
         width: 100px;
         padding: .65em .2em;
@@ -83,6 +84,84 @@ body {
             text-align: center;
             font-size: .4em;
             font-weight: @boldWeight;
+        }
+    }
+}
+
+.cbo-card {
+    border-radius: @borderRadius;
+    color: white;
+    background-color: @lightBlue;
+    margin: 2em 1em;
+    overflow: hidden;
+
+    .card-body {
+        display: flex;
+        padding: .5em;
+
+        .card-left, .card-right {
+            width: 50%;
+            padding: 1em;
+        }
+        .card-left {
+            .cbo-name {
+                font-weight: @boldWeight;
+                font-size: 1.2em;
+            }
+        }
+        .card-right {
+            font-weight: @lightWeight;
+        }
+    }
+
+    .card-footer {
+        text-align: center;
+        background-color: darken(@darkBlue, 15%);
+        padding: .25em 0;
+    }
+
+    button.card-btn {
+        font-family: @mainFont;
+        font-size: 1em;
+        border: none;
+
+        min-width: 120px;
+        padding: .5em 1em;
+        margin: .2em .15em;
+        border-radius: @borderRadius;
+        display: inline-block;
+
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+        }
+        &.btn-primary {
+            background-color: @mint;
+            &:not(:hover) {
+                color: darken(@mint, 50%);
+            }
+            &:hover {
+                background-color: darken(@mint, 20%);
+            }
+        }
+        &.btn-secondary {
+            background-color: @lavender;
+            &:not(:hover) {
+                color: desaturate(darken(@lavender, 40%), 60%);
+            }
+            &:hover {
+                background-color: darken(@lavender, 20%);
+            }
+        }
+        &.btn-default {
+            background-color: @peach;
+            &:not(:hover) {
+                color: darken(@peach, 40%);
+            }
+            &:hover {
+                background-color: darken(@peach, 15%);
+            }
         }
     }
 }

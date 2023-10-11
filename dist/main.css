@@ -1,0 +1,133 @@
+@font-face {
+  font-family: Agrandir;
+  src: url(Agrandir-Narrow.otf);
+}
+body {
+  background-color: #5479F7;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  padding: 0.5em;
+}
+#translate-btn {
+  position: fixed;
+  top: 0.4em;
+  right: 0.4em;
+}
+#wasi-name {
+  color: white;
+  text-align: center;
+  font-size: 5.5em;
+  font-weight: 200;
+  margin-top: -0.1em;
+  margin-bottom: 0;
+}
+#wasi-logo {
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 1.5em;
+  display: block;
+}
+#filter-wrapper {
+  margin-top: 3em;
+  width: 100%;
+  text-align: center;
+}
+#filters {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+}
+#filters .filter-btn {
+  position: relative;
+  display: inline-block;
+  border-radius: 0.6em;
+  border: 2px solid white;
+  width: 100px;
+  padding: 0.65em 0.2em;
+  margin: 0 0.5em 1.2em 0.5em;
+  color: white;
+  font-size: 3.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#filters .filter-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#filters .filter-btn .filter-label {
+  position: absolute;
+  top: 125px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.4em;
+  font-weight: 800;
+}
+.cbo-card {
+  border-radius: 0.6em;
+  color: white;
+  background-color: #8FA8FB;
+  margin: 2em 1em;
+  overflow: hidden;
+}
+.cbo-card .card-body {
+  display: flex;
+  padding: 0.5em;
+}
+.cbo-card .card-body .card-left,
+.cbo-card .card-body .card-right {
+  width: 50%;
+  padding: 1em;
+}
+.cbo-card .card-body .card-left .cbo-name {
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.cbo-card .card-body .card-right {
+  font-weight: 200;
+}
+.cbo-card .card-footer {
+  text-align: center;
+  background-color: #0b40f3;
+  padding: 0.25em 0;
+}
+.cbo-card button.card-btn {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1em;
+  border: none;
+  min-width: 120px;
+  padding: 0.5em 1em;
+  margin: 0.2em 0.15em;
+  border-radius: 0.6em;
+  display: inline-block;
+  cursor: pointer;
+}
+.cbo-card button.card-btn:hover {
+  color: white;
+}
+.cbo-card button.card-btn.btn-primary {
+  background-color: #C3E0E5;
+}
+.cbo-card button.card-btn.btn-primary:not(:hover) {
+  color: #336c76;
+}
+.cbo-card button.card-btn.btn-primary:hover {
+  background-color: #7cbbc6;
+}
+.cbo-card button.card-btn.btn-secondary {
+  background-color: #E3CBFE;
+}
+.cbo-card button.card-btn.btn-secondary:not(:hover) {
+  color: #7c51ac;
+}
+.cbo-card button.card-btn.btn-secondary:hover {
+  background-color: #ad67fc;
+}
+.cbo-card button.card-btn.btn-default {
+  background-color: #EEAEC1;
+}
+.cbo-card button.card-btn.btn-default:not(:hover) {
+  color: #ac244c;
+}
+.cbo-card button.card-btn.btn-default:hover {
+  background-color: #e16f91;
+}
+
