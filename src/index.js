@@ -2,6 +2,8 @@ import './index.less';
 import {cboData} from '../data/cbos';
 import CboTemplate from './templates/cboTemplate.handlebars';
 
+import '../img/wasi_logo.png';
+
 $(document).ready(() => {
     setTimeout(initTranslation, 100);
 
