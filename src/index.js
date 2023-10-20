@@ -52,7 +52,10 @@ $(document).ready(() => {
     setTimeout(() => $('body').scrollTop(0), 100);
 
     $('#clear-filter').on('click', () => {
-        showFilters(() => $('body').animate({scrollTop: 450}, 1000));
+        showFilters(() => {
+            const maxScroll =  $('body')[0].scrollHeight;
+            $('body').animate({scrollTop: maxScroll - 900}, 1000)
+        });
     });
 });
 
@@ -64,7 +67,6 @@ function initTranslation() {
 }
 
 function updateSpacer() {
-    console.log('updating spacer');
     const height = $('#logo-wrapper').height();
     $('#spacer').css({height});
 }
