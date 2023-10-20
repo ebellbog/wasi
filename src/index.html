@@ -8,13 +8,20 @@
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <title>wasi</title>
     </head>
-    <body>
+    <body class="show-body">
         <div id="translate-btn"></div>
-        <img id="wasi-logo" src="./dist/wasi_logo.png">
-        <h1 lang="qu" id="wasi-name"> wasi </h1>
+        <nav id="navbar"></nav>
+        <div id="logo-wrapper">
+            <img id="wasi-logo" src="./dist/wasi_logo.png">
+            <h1 lang="qu" id="wasi-name"> wasi </h1>
+            <div id="welcome-text">
+                Everyone should feel <b>welcomed</b> and <b>supported</b> when they move to a new home. If you <b>recently immigrated to NYC</b> and have any questions about <b>making a life here</b>, we want to help.
+            </div>
+        </div>
+        <div id="spacer"></div>
         <div id="filter-wrapper">
             <div id="filters">
-                <div class="filter-btn" data-filter="clothing">
+                <div class="filter-btn" data-filter="cloth">
                     <i class="fa-solid fa-shirt"></i>
                     <div class="filter-label">clothing</div>
                 </div>
@@ -22,7 +29,7 @@
                     <i class="fa-solid fa-utensils"></i>
                     <div class="filter-label">food</div>
                 </div>
-                <div class="filter-btn" data-filter="healthcare">
+                <div class="filter-btn" data-filter="health">
                     <i class="fa-solid fa-pills"></i>
                     <div class="filter-label">healthcare</div>
                 </div>
@@ -30,8 +37,19 @@
                     <i class="fa-solid fa-building"></i>
                     <div class="filter-label">housing</div>
                 </div>
+                <div class="filter-btn" data-filter="legal">
+                    <i class="fa-solid fa-gavel"></i>
+                    <div class="filter-label">legal</div>
+                </div>
+                <div class="filter-btn" data-filter="education">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div class="filter-label">education</div>
+                </div>
             </div>
         </div>
-        <div id="cbo-content"></div>
+        <div id="cbo-wrapper">
+            <div id="cbo-content"></div>
+            <div id="clear-filter"> Clear filter </div>
+        </div>
     </body>
 </html>

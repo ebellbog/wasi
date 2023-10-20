@@ -1,23 +1,59 @@
 import './index.less';
-import {cboData} from '../data/cbos';
+import '../img/wasi_logo.png';
+
 import CboTemplate from './templates/cboTemplate.handlebars';
 
-import '../img/wasi_logo.png';
+import CboNyc from '../data/cbos_nyc';
+import CboBrooklyn from '../data/cbos_brooklyn';
+import CboQueens from '../data/cbos_queens';
+import CboManhattan from '../data/cbos_manhattan';
+import CboBronx from '../data/cbos_bronx';
+import CboStaten from '../data/cbos_staten';
+
+const allCbos = [...CboNyc, ...CboBrooklyn, ...CboQueens, ...CboManhattan, ...CboBronx, ...CboStaten];
+
+const observer = new MutationObserver((mutationList) => {
+    let doUpdate = false;
+    for (const mutation of mutationList) {
+        if (mutation.type === "childList") {
+            doUpdate = true;
+        }
+    }
+    if (doUpdate) updateSpacer();
+});
+observer.observe($('body')[0], { attributes: true, childList: true, subtree: true });
 
 $(document).ready(() => {
     setTimeout(initTranslation, 100);
 
     $('.filter-btn').on('click', ({currentTarget}) => {
+        observer.disconnect();
         const filterType = $(currentTarget).data('filter');
-        console.log(filterType);
+        showOrgs(filterType);
     });
 
-    $('#cbo-content').html(
-        cboData.map((data) => {
-            data.address = data.address.split(',').join('<br>');
-            return CboTemplate(data);
-        }).join('')
-    );
+    $('#navbar').on('click', () => {
+        $('body').animate({scrollTop: 0}, 600, showFilters);
+    });
+
+    $(document).on('scroll', () => {
+        const bodyScroll = $('body').scrollTop();
+
+        $('#wasi-logo').css('width', Math.max(300 - bodyScroll * 1.1, 70));
+        $('#wasi-name').css({
+            opacity: Math.max(140 - bodyScroll, 0) / 140,
+            height: Math.max(106 - bodyScroll * .3, 0),
+        });
+        $('#welcome-text').css({
+            opacity: Math.max(420 - bodyScroll, 0) / 200,
+        });
+        $('#navbar').css('opacity', Math.min(1, (bodyScroll - 200) / 100));
+    });
+    setTimeout(() => $('body').scrollTop(0), 100);
+
+    $('#clear-filter').on('click', () => {
+        showFilters(() => $('body').animate({scrollTop: 450}, 1000));
+    });
 });
 
 function initTranslation() {
@@ -25,4 +61,36 @@ function initTranslation() {
         {pageLanguage: 'en', includedLanguages: 'en,es,qu', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
         'translate-btn'
     );
+}
+
+function updateSpacer() {
+    console.log('updating spacer');
+    const height = $('#logo-wrapper').height();
+    $('#spacer').css({height});
+}
+
+function showOrgs(filterType) {
+    $('body').removeClass('show-body');
+    setTimeout(() => {
+        $('#filter-wrapper').hide();
+
+        $('#cbo-content').html(
+            allCbos
+                .filter((data) => data.description.includes(filterType))
+                .map((data) => CboTemplate(data))
+                .join('')
+        );
+        $('#cbo-wrapper').show();
+
+        setTimeout(() => $('body').addClass('show-body'), 5);
+    }, 750)
+}
+function showFilters(updateFunc) {
+    $('body').removeClass('show-body');
+    setTimeout(() => {
+        $('#filter-wrapper').show();
+        $('#cbo-wrapper').hide();
+        if (updateFunc) updateFunc();
+        setTimeout(() => $('body').addClass('show-body'), 5);
+    }, 750)
 }

@@ -2,15 +2,46 @@
   font-family: Agrandir;
   src: url(Agrandir-Narrow.otf);
 }
+html {
+  background-color: #5479F7;
+}
 body {
   background-color: #5479F7;
   font-family: 'Bricolage Grotesque', sans-serif;
-  padding: 0.5em;
+  margin: 0;
+  padding: 0;
+}
+body.show-body #cbo-wrapper,
+body.show-body #filter-wrapper {
+  opacity: 1;
 }
 #translate-btn {
   position: fixed;
+  z-index: 3;
   top: 0.4em;
   right: 0.4em;
+  opacity: 0.6;
+  transform: scale(0.85);
+  transform-origin: 100% 0%;
+}
+#navbar {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  height: 73px;
+  width: 100%;
+  background-color: rgba(6, 32, 121, 0.3);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+}
+#logo-wrapper {
+  display: block;
+  pointer-events: none;
+  position: fixed;
+  z-index: 2;
+  top: 7px;
+  width: 100%;
+  transition: width 0.15s;
 }
 #wasi-name {
   color: white;
@@ -18,17 +49,30 @@ body {
   font-size: 5.5em;
   font-weight: 200;
   margin-top: -0.1em;
-  margin-bottom: 0;
+  margin-bottom: 0.1em;
+  transition: opacity 0.15s;
 }
 #wasi-logo {
+  cursor: pointer;
   width: 300px;
   margin: 0 auto;
-  padding-top: 1.5em;
   display: block;
 }
+#welcome-text {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 100;
+  line-height: 1.5em;
+  max-width: 600px;
+  margin: 1em auto 0 auto;
+  padding: 0 1.5em;
+}
+#spacer {
+  height: 40em;
+}
 #filter-wrapper {
-  margin-top: 3em;
   width: 100%;
+  margin-top: 3em;
   text-align: center;
 }
 #filters {
@@ -61,6 +105,32 @@ body {
   font-size: 0.4em;
   font-weight: 800;
 }
+#filter-wrapper,
+#cbo-wrapper {
+  opacity: 0;
+  transition: opacity 0.75s;
+  padding-bottom: 14em;
+}
+#cbo-wrapper {
+  display: none;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  text-align: center;
+}
+#cbo-wrapper #clear-filter {
+  color: white;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 800;
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  border-radius: 2em;
+  border: 2px solid white;
+  background-color: #dc5a80;
+}
+#cbo-wrapper #cbo-content {
+  text-align: left;
+}
 .cbo-card {
   border-radius: 0.6em;
   color: white;
@@ -69,33 +139,28 @@ body {
   overflow: hidden;
 }
 .cbo-card .card-body {
-  display: flex;
-  padding: 0.5em;
-}
-.cbo-card .card-body .card-left,
-.cbo-card .card-body .card-right {
-  width: 50%;
   padding: 1em;
 }
-.cbo-card .card-body .card-left .cbo-name {
+.cbo-card .card-body .cbo-name {
   font-weight: 800;
   font-size: 1.2em;
 }
-.cbo-card .card-body .card-left hr {
-  border: 0.5px solid white;
+.cbo-card .card-body .cbo-address {
+  margin-top: 0.3em;
+  font-size: 0.8em;
 }
-.cbo-card .card-body .card-right {
+.cbo-card .card-body hr {
+  border: 0.5px solid white;
+  margin: 0.8em 0;
+}
+.cbo-card .card-body .card-description {
   font-weight: 200;
   font-style: italic;
   line-height: 1.3em;
 }
-.cbo-card .card-body .cbo-address {
-  margin-top: 0.5em;
-  font-size: 0.9em;
-}
 .cbo-card .card-footer {
   text-align: center;
-  background-color: #0b40f3;
+  background-color: #2353f5;
   padding: 0.25em 0;
 }
 .cbo-card button.card-btn {

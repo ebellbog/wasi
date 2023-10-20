@@ -1,23 +1,35 @@
 <div class="cbo-card">
     <div class="card-body">
-        <div class="card-left">
-            <div class="cbo-name">{{name}}</div>
-            <hr>
-            <div class="cbo-address">{{{address}}}</div>
-        </div>
-        <div class="card-right">
+        <div class="cbo-name">{{name}}</div>
+        <div class="cbo-address">{{{address}}}</div>
+
+        <hr>
+
+        <div class="card-description">
             {{description}}
         </div>
     </div>
     <div class="card-footer">
-        <button class="card-btn btn-primary">
-            <i class="fa-solid fa-fw fa-phone"></i> Call
-        </button>
-        <button class="card-btn btn-secondary" data-href="mailto:{{email}}">
-            <i class="fa-solid fa-fw fa-envelope"></i> Email
-        </button>
-        <button class="card-btn btn-default" data-href="{{website}}">
-            <i class="fa-solid fa-fw fa-globe"></i> Website
-        </button>
+        {{#if phone}}
+        <a href="tel:{{phone}}">
+            <button class="card-btn btn-primary">
+                <i class="fa-solid fa-fw fa-phone"></i> Call
+            </button>
+        </a>
+        {{/if}}
+        {{#if email}}
+        <a href="mailto:{{email}}" target="_blank">
+            <button class="card-btn btn-default">
+                <i class="fa-solid fa-fw fa-envelope"></i> Email
+            </button>
+        </a>
+        {{/if}}
+        {{#if url}}
+        <a href="{{url}}" target="_blank">
+            <button class="card-btn btn-secondary">
+                <i class="fa-solid fa-fw fa-globe"></i> Website
+            </button>
+        </a>
+        {{/if}}
     </div>
 </div>
