@@ -86,6 +86,7 @@ body.show-body #filter-wrapper {
   max-width: 475px;
   margin: 1em auto;
   padding: 0 1.5em;
+  pointer-events: none;
 }
 #spacer {
   height: 22em;
