@@ -19,7 +19,7 @@ export default [
   },
   {
     name: "Advocates for Children of New York",
-    languages: ['Arabic', 'Bengali', 'Chinese', 'English', 'French', 'Haitian Creole', 'Korean', 'Russian', 'Spanish', 'Urdu'],
+    languages: ['Arabic', 'Bengali', 'Chinese', 'English', 'French', 'Haitian&nbsp;Creole', 'Korean', 'Russian', 'Spanish', 'Urdu'],
     address: "151 West 30th St. 5th Floor, New York, NY 10001",
     borough: "New York City",
     phone: "(212) 947-9779",
@@ -136,7 +136,7 @@ export default [
   },
   {
     name: "Church Avenue Merchants Block Association",
-    languages: ['English', 'French', 'Haitian Creole', 'Russian', 'Spanish'],
+    languages: ['English', 'French', 'Haitian&nbsp;Creole', 'Russian', 'Spanish'],
     address: "1720 Church Ave., Brooklyn, NY 11226",
     borough: "New York City",
     phone: "(718) 287-2600",
@@ -181,7 +181,7 @@ export default [
   },
   {
     name: "CUNY Citizenship Now!",
-    languages: ['Cantonese', 'English', 'French', 'Haitian Creole', 'Korean', 'Italian', 'Mandarin', 'Polish', 'Spanish'],
+    languages: ['Cantonese', 'English', 'French', 'Haitian&nbsp;Creole', 'Korean', 'Italian', 'Mandarin', 'Polish', 'Spanish'],
     address: null,
     borough: "New York City",
     phone: null,
@@ -199,7 +199,7 @@ export default [
   },
   {
     name: "The Door",
-    languages: ['English', 'French', 'Haitian Creole', 'Spanish'],
+    languages: ['English', 'French', 'Haitian&nbsp;Creole', 'Spanish'],
     address: "121 Avenue of the Americas, New York, NY 10013",
     borough: "New York City",
     phone: "(212) 941-9090",
@@ -226,7 +226,7 @@ export default [
   },
   {
     name: "Flanbwayan Haitian Literacy Project",
-    languages: ['English', 'Haitian Creole'],
+    languages: ['English', 'Haitian&nbsp;Creole'],
     address: "208 Parkside Ave. 2nd Floor, Brooklyn, NY 11226",
     borough: "New York City",
     phone: "(718) 774-3037",
@@ -298,7 +298,7 @@ export default [
   },
   {
     name: "Immigrant Justice Corps",
-    languages: ['Arabic', 'Cantonese', 'Czech', 'French', 'Haitian Creole', 'Korean', 'Mandarin', 'Polish', 'Punjabi', 'Soninke', 'Spanish', 'Turkish', 'Urdu'],
+    languages: ['Arabic', 'Cantonese', 'Czech', 'French', 'Haitian&nbsp;Creole', 'Korean', 'Mandarin', 'Polish', 'Punjabi', 'Soninke', 'Spanish', 'Turkish', 'Urdu'],
     address: null,
     borough: "New York City",
     phone: "(212) 407-3417",

@@ -109,7 +109,7 @@ export default [
   },
   {
     name: "Flanbwayan Haitian Literacy Project",
-    languages: ['English', 'Haitian Creole', 'French'],
+    languages: ['English', 'Haitian&nbsp;Creole', 'French'],
     address: "208 Parkside Avenue, 2nd Floor, Brooklyn, NY 11226",
     borough: "Brooklyn",
     phone: "(718) 774-3037",

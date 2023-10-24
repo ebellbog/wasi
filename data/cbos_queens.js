@@ -145,7 +145,7 @@ export default [
   },
   {
     name: "Jacob A. Riis Neighborhood Settlement",
-    languages: ['Bengali', 'English', 'French', 'Greek', 'Haitian Creole', 'Hindi', 'Italian', 'Mandarin', 'Russian', 'Spanish'],
+    languages: ['Bengali', 'English', 'French', 'Greek', 'Haitian&nbsp;Creole', 'Hindi', 'Italian', 'Mandarin', 'Russian', 'Spanish'],
     address: "10-25 41st Ave., Long Island City, NY 11101",
     borough: "Queens",
     phone: "(718) 784-7447",
@@ -200,7 +200,7 @@ export default [
   },
   {
     name: "South Asian Council for Social Services",
-    languages: ['Bengali', 'Cantonese', 'English', 'Gujarati', 'Haitian Creole', 'Hindi', 'Kannada', 'Mandarin', 'Marathi', 'Malayalam', 'Nepali', 'Punjabi', 'Spanish', 'Tamil', 'Telugu', 'Urdu'],
+    languages: ['Bengali', 'Cantonese', 'English', 'Gujarati', 'Haitian&nbsp;Creole', 'Hindi', 'Kannada', 'Mandarin', 'Marathi', 'Malayalam', 'Nepali', 'Punjabi', 'Spanish', 'Tamil', 'Telugu', 'Urdu'],
     address: "143-06 45th Ave., Flushing, NY 11355",
     borough: "Queens",
     phone: "(718) 321-7929",

@@ -73,7 +73,7 @@ export default [
   },
   {
     name: "SoBRO",
-    languages: ['English', 'French', 'Haitian Creole', 'Spanish'],
+    languages: ['English', 'French', 'Haitian&nbsp;Creole', 'Spanish'],
     address: "555 Bergen Ave., Bronx, NY 10455",
     borough: "The Bronx",
     phone: "(718) 292-3113",
