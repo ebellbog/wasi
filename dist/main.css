@@ -28,13 +28,27 @@ body.show-body #filter-wrapper {
 .VIpgJd-ZVi9od-ORHb-OEVmcd {
   display: none;
 }
+#about-btn {
+  z-index: 3;
+  position: fixed;
+  top: 36px;
+  left: 14px;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 1.6em;
+  cursor: pointer;
+  opacity: 0.6;
+}
+#about-btn:hover {
+  opacity: 1;
+}
 #navbar {
   z-index: 1;
   position: fixed;
   top: 0;
   height: 73px;
   width: 100%;
-  background-color: rgba(6, 32, 121, 0.3);
+  background-color: rgba(6, 32, 121, 0.4);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   opacity: 0;
@@ -136,8 +150,7 @@ body.show-body #filter-wrapper {
   border: 2px solid white;
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.3));
   color: white;
-  background-color: #dc5a80;
-  opacity: 0.85;
+  background-color: rgba(220, 90, 128, 0.75);
 }
 #cbo-wrapper #clear-filter:hover {
   background-color: white;
@@ -218,5 +231,44 @@ body.show-body #filter-wrapper {
 }
 .cbo-card button.card-btn.btn-default:hover {
   background-color: #e16f91;
+}
+#overlay-wrapper {
+  display: none;
+  z-index: 5;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(4px);
+}
+#overlay-wrapper #overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 680px;
+  padding: 2em;
+  box-sizing: border-box;
+  background: linear-gradient(45deg, #EEAEC1, #8FA8FB);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.18));
+  border-radius: 0.6em;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 100;
+  line-height: 1.35em;
+}
+#overlay-wrapper #overlay-content a {
+  color: white;
+}
+#overlay-wrapper #overlay-content img {
+  display: block;
+  margin: 0 auto 1em auto;
+  width: 100%;
+  max-width: 400px;
+}
+.show-overlay #overlay-wrapper {
+  display: block;
 }
 

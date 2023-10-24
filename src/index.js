@@ -1,5 +1,6 @@
 import './index.less';
 import '../img/wasi_logo.png';
+import '../img/BRL_logo.png';
 
 import CboTemplate from './templates/cboTemplate.handlebars';
 
@@ -45,6 +46,14 @@ $(document).ready(() => {
             $('body').animate({scrollTop: maxScroll - 900}, 1000)
         });
     });
+
+    $('#about-btn').on('click', () => {
+        $('body').addClass('show-overlay');
+    });
+    $('#overlay-wrapper').on('click', (e) => {
+        if (e.target.tagName === 'A') return;
+        $('body').removeClass('show-overlay');
+    });
 });
 
 function initTranslation() {
@@ -52,11 +61,6 @@ function initTranslation() {
         {pageLanguage: 'en', includedLanguages: 'en,es,qu', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
         'translate-btn'
     );
-}
-
-function updateSpacer() {
-    const height = $('#logo-wrapper').height();
-    $('#spacer').css({height});
 }
 
 function showOrgs(filterType) {
