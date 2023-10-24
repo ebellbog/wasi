@@ -184,28 +184,37 @@ body {
     max-width: 700px;
     margin: 1em auto;
 
-    #clear-filter {
-        cursor: pointer;
-
+    #cbo-footer {
         position: fixed;
+        left: 0;
         bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
 
-        font-weight: @boldWeight;
+        width: 100%;
+        text-align: center;
 
-        padding: .5em 1.5em;
-        border-radius: 2em;
-        border: 2px solid white;
+        .footer-btn {
+            display: inline-block;
+            cursor: pointer;
+            font-weight: @boldWeight;
 
-        filter: drop-shadow(0px 0px 6px fade(black, 30%));
+            padding: .5em 1.5em;
+            border-radius: 2em;
+            border: 2px solid white;
 
-        color: white;
-        background-color: fade(darken(@peach, 20%), 75%);
+            filter: drop-shadow(0px 0px 6px fade(black, 30%));
 
-        &:hover {
-            background-color: white;
-            color: darken(@peach, 20%);
+            color: white;
+
+            &:hover {
+                background-color: white;
+                color: darken(@peach, 20%);
+            }
+        }
+        #clear-filter {
+            background-color: fade(darken(@peach, 20%), 75%);
+        }
+        #edit-filters {
+            background-color: fade(darken(@goldenrod, 20%), 75%);
         }
     }
 }
