@@ -8,6 +8,12 @@
         <div class="card-description">
             {{description}}
         </div>
+
+        {{#if languages}}
+        <div class="card-languages">
+            <i class="fa-solid fa-fw fa-comments"></i> Languages: {{#languages}} <span class="language">{{this}}</span>{{/languages}}
+        </div>
+        {{/if}}
     </div>
     <div class="card-footer">
         {{#if phone}}

@@ -183,6 +183,20 @@ body.show-body #filter-wrapper {
   font-style: italic;
   line-height: 1.3em;
 }
+.cbo-card .card-body .card-languages {
+  margin-top: 0.5em;
+}
+.cbo-card .card-body .card-languages .language {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-weight: 100;
+  margin: 0 1px;
+  line-height: 25px;
+}
+.cbo-card .card-body .card-languages .language:nth-child(2) {
+  margin-left: 3px;
+}
 .cbo-card .card-footer {
   text-align: center;
   background-color: #2353f5;
