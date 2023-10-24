@@ -10,6 +10,7 @@ body {
   font-family: 'Bricolage Grotesque', sans-serif;
   margin: 0;
   padding: 0;
+  top: 0!important;
 }
 body.show-body #cbo-wrapper,
 body.show-body #filter-wrapper {
@@ -20,9 +21,12 @@ body.show-body #filter-wrapper {
   z-index: 3;
   top: 0.4em;
   right: 0.4em;
-  opacity: 0.6;
+  opacity: 0.7;
   transform: scale(0.85);
   transform-origin: 100% 0%;
+}
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none;
 }
 #navbar {
   z-index: 1;
@@ -36,7 +40,6 @@ body.show-body #filter-wrapper {
 }
 #logo-wrapper {
   display: block;
-  pointer-events: none;
   position: fixed;
   z-index: 2;
   top: 7px;
@@ -59,16 +62,18 @@ body.show-body #filter-wrapper {
   display: block;
 }
 #welcome-text {
+  position: sticky;
+  top: 90px;
   color: white;
   font-size: 1.5em;
   font-weight: 100;
   line-height: 1.5em;
   max-width: 475px;
-  margin: 1em auto 0 auto;
+  margin: 1em auto;
   padding: 0 1.5em;
 }
 #spacer {
-  height: 40em;
+  height: 22em;
 }
 #filter-wrapper {
   width: 100%;
@@ -109,14 +114,14 @@ body.show-body #filter-wrapper {
 #cbo-wrapper {
   opacity: 0;
   transition: opacity 0.75s;
-  padding-bottom: 14em;
+  padding-bottom: 15em;
 }
 #cbo-wrapper {
   display: none;
   padding-left: 0.3em;
   padding-right: 0.3em;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 1em auto;
 }
 #cbo-wrapper #clear-filter {
   cursor: pointer;
@@ -124,7 +129,6 @@ body.show-body #filter-wrapper {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.2em;
   font-weight: 800;
   padding: 0.5em 1.5em;
   border-radius: 2em;
@@ -132,6 +136,7 @@ body.show-body #filter-wrapper {
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.3));
   color: white;
   background-color: #dc5a80;
+  opacity: 0.85;
 }
 #cbo-wrapper #clear-filter:hover {
   background-color: white;
@@ -168,6 +173,9 @@ body.show-body #filter-wrapper {
   text-align: center;
   background-color: #2353f5;
   padding: 0.25em 0;
+}
+.cbo-card .card-footer a {
+  text-decoration: none;
 }
 .cbo-card button.card-btn {
   font-family: 'Bricolage Grotesque', sans-serif;

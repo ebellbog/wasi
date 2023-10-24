@@ -12,27 +12,28 @@ import CboStaten from '../data/cbos_staten';
 
 const allCbos = [...CboNyc, ...CboBrooklyn, ...CboQueens, ...CboManhattan, ...CboBronx, ...CboStaten];
 
-const observer = new MutationObserver((mutationList) => {
-    let doUpdate = false;
-    for (const mutation of mutationList) {
-        if (mutation.type === "childList") {
-            doUpdate = true;
-        }
-    }
-    if (doUpdate) updateSpacer();
-});
-observer.observe($('body')[0], { attributes: true, childList: true, subtree: true });
+// const observer = new MutationObserver((mutationList) => {
+//     let doUpdate = false;
+//     for (const mutation of mutationList) {
+//         if (mutation.type === "childList") {
+//             doUpdate = true;
+//         }
+//     }
+//     if (doUpdate) updateSpacer();
+// });
+// observer.observe($('body')[0], { attributes: true, childList: true, subtree: true });
 
 $(document).ready(() => {
     setTimeout(initTranslation, 100);
 
-    $('.filter-btn').on('click', ({currentTarget}) => {
-        observer.disconnect();
-        const filterType = $(currentTarget).data('filter');
+    $('.filter-btn').on('click', (e) => {
+        // observer.disconnect();
+        console.log('clicked filter');
+        const filterType = $(e.currentTarget).data('filter');
         showOrgs(filterType);
     });
 
-    $('#navbar').on('click', () => {
+    $('#logo-wrapper').on('click', () => {
         $('body').animate({scrollTop: 0}, 600, showFilters);
     });
 
@@ -45,7 +46,7 @@ $(document).ready(() => {
             height: Math.max(106 - bodyScroll * .3, 0),
         });
         $('#welcome-text').css({
-            opacity: Math.max(420 - bodyScroll, 0) / 200,
+            opacity: Math.max(440 - bodyScroll, 0) / 175,
         });
         $('#navbar').css('opacity', Math.min(1, (bodyScroll - 200) / 100));
     });
