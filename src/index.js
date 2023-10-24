@@ -12,23 +12,10 @@ import CboStaten from '../data/cbos_staten';
 
 const allCbos = [...CboNyc, ...CboBrooklyn, ...CboQueens, ...CboManhattan, ...CboBronx, ...CboStaten];
 
-// const observer = new MutationObserver((mutationList) => {
-//     let doUpdate = false;
-//     for (const mutation of mutationList) {
-//         if (mutation.type === "childList") {
-//             doUpdate = true;
-//         }
-//     }
-//     if (doUpdate) updateSpacer();
-// });
-// observer.observe($('body')[0], { attributes: true, childList: true, subtree: true });
-
 $(document).ready(() => {
     setTimeout(initTranslation, 100);
 
     $('.filter-btn').on('click', (e) => {
-        // observer.disconnect();
-        console.log('clicked filter');
         const filterType = $(e.currentTarget).data('filter');
         showOrgs(filterType);
     });

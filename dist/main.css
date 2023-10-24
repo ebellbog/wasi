@@ -36,6 +36,7 @@ body.show-body #filter-wrapper {
   width: 100%;
   background-color: rgba(6, 32, 121, 0.3);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   opacity: 0;
 }
 #logo-wrapper {
