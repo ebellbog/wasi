@@ -37,7 +37,7 @@ body.show-body #filter-wrapper {
   color: white;
   font-size: 1.6em;
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 #about-btn:hover {
   opacity: 1;
@@ -241,6 +241,7 @@ body.show-body #filter-wrapper {
   top: 0;
   left: 0;
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 #overlay-wrapper #overlay-content {
   position: absolute;
@@ -267,6 +268,18 @@ body.show-body #filter-wrapper {
   margin: 0 auto 1em auto;
   width: 100%;
   max-width: 400px;
+}
+#overlay-wrapper #overlay-content #close-overlay {
+  position: absolute;
+  top: -0.6em;
+  left: -1em;
+  font-size: 1.3em;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+  opacity: 0.6;
+  cursor: pointer;
+}
+#overlay-wrapper #overlay-content #close-overlay:hover {
+  opacity: 1;
 }
 .show-overlay #overlay-wrapper {
   display: block;

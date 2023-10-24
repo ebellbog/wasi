@@ -61,7 +61,7 @@ body {
     font-size: 1.6em;
 
     cursor: pointer;
-    opacity: 0.6;
+    opacity: 0.7;
     &:hover {
         opacity: 1;
     }
@@ -308,6 +308,7 @@ body {
     left: 0;
 
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 
     #overlay-content {
         position: absolute;
@@ -337,6 +338,19 @@ body {
             margin: 0 auto 1em auto;
             width: 100%;
             max-width: 400px;
+        }
+        #close-overlay {
+            position: absolute;
+            top: -.6em;
+            left: -1em;
+            font-size: 1.3em;
+            filter: drop-shadow(1px 1px 1px fade(black, 30%));
+
+            opacity: .6;
+            cursor: pointer;
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 
