@@ -55,7 +55,7 @@
             <div id="cbo-content"></div>
             <div id="cbo-footer">
                 <div id="edit-filters" class="footer-btn"> Edit filters </div>
-                <div id="clear-filter" class="footer-btn"> Clear filter </div>
+                <div id="clear-filter" class="footer-btn"> Clear filters </div>
             </div>
         </div>
         <div id="overlay-wrapper">
@@ -66,7 +66,27 @@
                 <br><br>
                 Questions or comments? You can reach us <a href="mailto:anahh.design@gmail.com" target="_blank">here</a>!
             </div>
-            <div id="settings-overlay"></div>
+            <div id="settings-overlay">
+                <i id="close-overlay" class="fa-solid fa-xmark"></i>
+                <h2>Filters</h2>
+                <div class="setting-group">
+                    <label>Language:</label>
+                    <select id="language-setting" data-type="languages">
+                        <option value=""> Any </option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label>Borough:</label>
+                    <select id="borough-setting" data-type="borough">
+                        <option value=""> Any </option>
+                        <option> Manhattan </option>
+                        <option> Broooklyn </option>
+                        <option> Queens </option>
+                        <option> The Bronx </option>
+                        <option> Staten Island </option>
+                    </select>
+                </div>
+            </div>
         </div>
     </body>
 </html>

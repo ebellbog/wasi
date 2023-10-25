@@ -204,17 +204,20 @@ body {
             filter: drop-shadow(0px 0px 6px fade(black, 30%));
 
             color: white;
-
+        }
+        #clear-filter {
+            background-color: fade(darken(@peach, 20%), 75%);
             &:hover {
                 background-color: white;
                 color: darken(@peach, 20%);
             }
         }
-        #clear-filter {
-            background-color: fade(darken(@peach, 20%), 75%);
-        }
         #edit-filters {
             background-color: fade(darken(@goldenrod, 20%), 75%);
+            &:hover {
+                background-color: white;
+                color: darken(@goldenrod, 20%);
+            }
         }
     }
 }
@@ -324,26 +327,31 @@ body {
 }
 
 #overlay-wrapper {
-    display: none;
-
     z-index: 5;
+
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
 
+    background-color: fade(black, 20%);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 
+    opacity: 0;
+    transition: opacity .5s;
+    pointer-events: none;
+
     #info-overlay, #settings-overlay {
+        display: none;
+
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 
         width: 80%;
-        max-width: 680px;
 
         padding: 2em;
         box-sizing: border-box;
@@ -379,11 +387,61 @@ body {
             }
         }
     }
+    #info-overlay {
+        max-width: 680px;
+    }
     #settings-overlay {
-        display: none;
+        max-width: 480px;
+        h2 {
+            text-align: center;
+            font-weight: @lightWeight;
+            font-size: 1.7em;
+            margin-top: 0;
+        }
+        .setting-group {
+            &:not(:first-child) {
+                margin-top: .4em;
+            }
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+
+            margin-right: 8px;
+
+            font-weight: @boldWeight;
+            text-align: right;
+        }
+        select {
+            width: 195px;
+            padding: 4px;
+            font-family: @mainFont;
+            font-size: .8em;
+            border-radius: @borderRadius;
+            cursor: pointer;
+        }
     }
 
+
     .show-overlay & {
+        opacity: 1;
+        pointer-events: all;
+    }
+    .show-info & #info-overlay,
+    .show-settings & #settings-overlay {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #overlay-wrapper {
+        #settings-overlay {
+            label {
+                text-align: left;
+            }
+            select {
+                display: block;
+            }
+        }
     }
 }

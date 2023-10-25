@@ -11,10 +11,22 @@ import CboManhattan from '../data/cbos_manhattan';
 import CboBronx from '../data/cbos_bronx';
 import CboStaten from '../data/cbos_staten';
 
+import 'jquery-ui';
+import '@selectize/selectize';
+
 const allCbos = [...CboNyc, ...CboBrooklyn, ...CboQueens, ...CboManhattan, ...CboBronx, ...CboStaten];
+let activeCbos, filteredCbos;
 
 $(document).ready(() => {
     setTimeout(initTranslation, 100);
+
+    const allLanguages = new Set(allCbos.map((cbo) => cbo.languages).flat());
+    const $languageSetting = $('#language-setting');
+    Array.from(allLanguages).sort().forEach((language) => {
+        if (language.length < 20) {
+            $languageSetting.append($('<option>').html(language));
+        }
+    });
 
     $('.filter-btn').on('click', (e) => {
         const filterType = $(e.currentTarget).data('filter');
@@ -41,18 +53,36 @@ $(document).ready(() => {
     setTimeout(() => $('body').scrollTop(0), 100);
 
     $('#clear-filter').on('click', () => {
+        $('select').val('');
         showFilters(() => {
             const maxScroll =  $('body')[0].scrollHeight;
             $('body').animate({scrollTop: maxScroll - 900}, 1000)
         });
     });
+    $('#edit-filters').on('click', () => {
+        $('body')
+            .removeClass('show-info')
+            .addClass('show-settings show-overlay');
+    });
 
     $('#about-btn').on('click', () => {
-        $('body').addClass('show-overlay');
+        $('body')
+            .removeClass('show-settings')
+            .addClass('show-info show-overlay');
     });
     $('#overlay-wrapper').on('click', (e) => {
-        if (e.target.tagName === 'A') return;
+        const $target = $(e.target);
+        const $parent = $target.closest('#settings-overlay');
+        if (e.target.tagName === 'A' || $parent.length && e.target.tagName !== 'svg') return;
         $('body').removeClass('show-overlay');
+    });
+    $('select').on('change', function() {
+        const value = this.value;
+        const type = $(this).data('type');
+        filteredCbos = value ?
+            activeCbos.filter((cbo) => cbo[type].includes(value)) :
+            activeCbos;
+        updateOrgList();
     });
 });
 
@@ -68,12 +98,8 @@ function showOrgs(filterType) {
     setTimeout(() => {
         $('#filter-wrapper').hide();
 
-        $('#cbo-content').html(
-            allCbos
-                .filter((data) => data.description.includes(filterType))
-                .map((data) => CboTemplate(data))
-                .join('')
-        );
+        activeCbos = filteredCbos = allCbos.filter((data) => data.description.includes(filterType));
+        updateOrgList();
         $('#cbo-wrapper').show();
 
         setTimeout(() => $('body').addClass('show-body'), 5);
@@ -87,4 +113,10 @@ function showFilters(updateFunc) {
         if (updateFunc) updateFunc();
         setTimeout(() => $('body').addClass('show-body'), 5);
     }, 750)
+}
+
+function updateOrgList() {
+    $('#cbo-content').html(
+        filteredCbos.map((data) => CboTemplate(data)).join('')
+    );
 }
