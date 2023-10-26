@@ -184,9 +184,7 @@ body {
     max-width: 700px;
     margin: 1em auto;
 
-    #cbo-content:empty::after {
-        content: "Sorry, but we couldn't find any organizations matching your filter :(";
-
+    #cbo-content .empty-message {
         display: block;
         width: 75%;
         text-align: center;
@@ -200,7 +198,7 @@ body {
     #cbo-footer {
         position: fixed;
         left: 0;
-        bottom: 20px;
+        bottom: 18px;
 
         width: 100%;
         text-align: center;
@@ -211,7 +209,7 @@ body {
             font-weight: @boldWeight;
 
             padding: .5em 1.5em;
-            margin: 0 .2em;
+            margin: .2em;
 
             border-radius: 2em;
             border: 2px solid white;

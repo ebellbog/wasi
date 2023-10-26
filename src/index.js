@@ -53,7 +53,6 @@ $(document).ready(() => {
     setTimeout(() => $('body').scrollTop(0), 100);
 
     $('#clear-filter').on('click', () => {
-        $('select').val('');
         showFilters(() => {
             const maxScroll =  $('body')[0].scrollHeight;
             $('body').animate({scrollTop: maxScroll - 900}, 1000)
@@ -82,7 +81,7 @@ $(document).ready(() => {
             const value = this.value;
             const type = $(this).data('type');
             filteredCbos = value ?
-                filteredCbos.filter((cbo) => cbo[type].includes(value)) :
+                filteredCbos.filter((cbo) => cbo[type]?.includes(value)) :
                 filteredCbos;
         });
         updateOrgList();
@@ -110,6 +109,8 @@ function showOrgs(filterType) {
 }
 function showFilters(updateFunc) {
     $('body').removeClass('show-body');
+    $('select').val('');
+
     setTimeout(() => {
         $('#filter-wrapper').show();
         $('#cbo-wrapper').hide();
@@ -120,6 +121,9 @@ function showFilters(updateFunc) {
 
 function updateOrgList() {
     $('#cbo-content').html(
-        filteredCbos.map((data) => CboTemplate(data)).join('')
+        filteredCbos.length ?
+            filteredCbos.map((data) => CboTemplate(data)).join('')
+            : `<div class="empty-message">Sorry, but we couldn't find any
+            organizations matching your filter :(</div>`
     );
 }
