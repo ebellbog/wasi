@@ -242,7 +242,7 @@ export default [
     description: "Helps Chinese immigrants through English and citizenship classes, outreach and education, political empowerment, and information and referrals."
   },
   {
-    name: "Church Avenue Merchants Block Association",
+    name: "Church Avenue Merchants Block Association (CAMBA)",
     languages: [
       "English",
       "French",
