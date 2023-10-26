@@ -18,6 +18,8 @@ const allCbos = [...CboNyc, ...CboBrooklyn, ...CboQueens, ...CboManhattan, ...Cb
 let activeCbos, filteredCbos;
 activeCbos = filteredCbos = allCbos;
 
+let doAnimateOnScroll = true;
+
 $(document).ready(() => {
     setTimeout(initTranslation, 100);
     $('select').selectize({
@@ -36,24 +38,14 @@ $(document).ready(() => {
     });
 
     $(document).on('scroll', () => {
-        const bodyScroll = $('body').scrollTop();
-
-        $('#wasi-logo').css('width', Math.max(300 - bodyScroll * 1.1, 70));
-        $('#wasi-name').css({
-            opacity: Math.max(140 - bodyScroll, 0) / 140,
-            height: Math.max(106 - bodyScroll * .3, 0),
-        });
-        $('#welcome-text').css({
-            opacity: Math.max(440 - bodyScroll, 0) / 175,
-        });
-        $('#navbar').css('opacity', Math.min(1, (bodyScroll - 200) / 100));
+        onScroll();
     });
     setTimeout(() => $('body').scrollTop(0), 100);
 
     $('#clear-filter').on('click', () => {
         showFilters(() => {
             const maxScroll =  $('body')[0].scrollHeight;
-            $('body').animate({scrollTop: maxScroll - 900}, 1000)
+            $('body').scrollTop(maxScroll - 900);
         });
     });
     $('#edit-filters').on('click', () => {
@@ -74,6 +66,21 @@ $(document).ready(() => {
         $('body').removeClass('show-overlay');
     });
 });
+
+function onScroll(scrollAmount) {
+    if (!doAnimateOnScroll) return;
+    scrollAmount = scrollAmount || $('body').scrollTop();
+
+    $('#wasi-logo').css('width', Math.max(300 - scrollAmount * 1.1, 70));
+    $('#wasi-name').css({
+        opacity: Math.max(140 - scrollAmount, 0) / 140,
+        height: Math.max(106 - scrollAmount * .3, 0),
+    });
+    $('#welcome-text').css({
+        opacity: Math.max(440 - scrollAmount, 0) / 175,
+    });
+    $('#navbar').css('opacity', Math.min(1, (scrollAmount - 200) / 100));
+}
 
 function onSelectizeChange() {
     filteredCbos = activeCbos;
@@ -104,32 +111,38 @@ function initTranslation() {
 }
 
 function showOrgs(filterType) {
-    $('body').removeClass('show-body');
+    $('body').removeClass('show-cbo show-filter');
     setTimeout(() => {
         $('#filter-wrapper, #welcome-text').hide();
+
+        onScroll(1000);
+        doAnimateOnScroll = false;
 
         activeCbos = filteredCbos = allCbos.filter((data) => data.description.includes(filterType));
 
         updateOrgList();
         updateLanguageList();
 
+        $('#spacer').css('height', '4.75em');
         $('#cbo-wrapper').show();
-        $('body').scrollTop(285);
+        $('body').scrollTop(0);
 
-        setTimeout(() => $('body').addClass('show-body'), 5);
+        setTimeout(() => $('body').addClass('show-cbo'), 10);
     }, 750)
 }
 function showFilters(updateFunc) {
-    $('body').removeClass('show-body');
+    $('body').removeClass('show-cbo show-filter');
     $('select').each(function() {
         $(this)[0].selectize.setValue('');
     });
 
     setTimeout(() => {
+        $('#spacer').css('height', '22em');
         $('#filter-wrapper, #welcome-text').show();
         $('#cbo-wrapper').hide();
         if (updateFunc) updateFunc();
-        setTimeout(() => $('body').addClass('show-body'), 5);
+        doAnimateOnScroll = true;
+        setTimeout(() => $('body').addClass('show-filter'), 10);
     }, 750)
 }
 
