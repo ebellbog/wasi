@@ -16,17 +16,10 @@ import '@selectize/selectize';
 
 const allCbos = [...CboNyc, ...CboBrooklyn, ...CboQueens, ...CboManhattan, ...CboBronx, ...CboStaten];
 let activeCbos, filteredCbos;
+activeCbos = filteredCbos = allCbos;
 
 $(document).ready(() => {
     setTimeout(initTranslation, 100);
-
-    const allLanguages = new Set(allCbos.map((cbo) => cbo.languages).flat());
-    const $languageSetting = $('#language-setting');
-    Array.from(allLanguages).sort().forEach((language) => {
-        if (language.length < 20) {
-            $languageSetting.append($('<option>').html(language));
-        }
-    });
 
     $('.filter-btn').on('click', (e) => {
         const filterType = $(e.currentTarget).data('filter');
@@ -77,6 +70,7 @@ $(document).ready(() => {
     });
     $('select').on('change', () => {
         filteredCbos = activeCbos;
+
         $('#settings-overlay select').each(function() {
             const value = this.value;
             const type = $(this).data('type');
@@ -84,6 +78,7 @@ $(document).ready(() => {
                 filteredCbos.filter((cbo) => cbo[type]?.includes(value)) :
                 filteredCbos;
         });
+
         updateOrgList();
     });
 });
@@ -101,7 +96,10 @@ function showOrgs(filterType) {
         $('#filter-wrapper').hide();
 
         activeCbos = filteredCbos = allCbos.filter((data) => data.description.includes(filterType));
+
         updateOrgList();
+        updateLanguageList();
+
         $('#cbo-wrapper').show();
 
         setTimeout(() => $('body').addClass('show-body'), 5);
@@ -126,4 +124,20 @@ function updateOrgList() {
             : `<div class="empty-message">Sorry, but we couldn't find any
             organizations matching your filter :(</div>`
     );
+}
+
+function updateLanguageList() {
+    const filteredLanguages = new Set(activeCbos.map((cbo) => cbo.languages).flat());
+    const $languageSetting = $('#language-setting');
+
+    const prevLanguage = $languageSetting.val();
+    $languageSetting.find('option:not(:first-child').remove();
+
+    Array.from(filteredLanguages).sort().forEach((language) => {
+        if (language.length < 20) {
+            $languageSetting.append($('<option>').html(language));
+        }
+    });
+
+    $languageSetting.val(prevLanguage);
 }

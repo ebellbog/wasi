@@ -161,6 +161,7 @@ body.show-body #filter-wrapper {
   font-weight: 800;
   padding: 0.5em 1.5em;
   margin: 0.2em;
+  min-width: 90px;
   border-radius: 2em;
   border: 2px solid white;
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.3));
