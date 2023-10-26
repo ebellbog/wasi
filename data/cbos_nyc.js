@@ -259,7 +259,7 @@ export default [
   {
     name: "City Bar Justice Center",
     languages: [
-      "Has access to interpretation services for any language"
+      "Interpretation services for any language"
     ],
     address: "42 West 44th St., New York, NY 10036",
     borough: "Manhattan",
@@ -547,7 +547,7 @@ export default [
   {
     name: "International Rescue Committee",
     languages: [
-      "Has access to interpretation services for any language"
+      "Interpretation services for any language"
     ],
     address: "122 East 42nd Street, New York, New York 10168",
     borough: "Manhattan",
@@ -570,7 +570,7 @@ export default [
   {
     name: "The Legal Aid Society",
     languages: [
-      "Has access to interpretation services for any language"
+      "Interpretation services for any language"
     ],
     address: null,
     borough: null,
@@ -819,7 +819,7 @@ export default [
   {
     name: "Urban Justice Center",
     languages: [
-      "Has access to interpretation services for any language"
+      "Interpretation services for any language"
     ],
     address: null,
     borough: null,

@@ -37,7 +37,7 @@ export default [
   },
   {
     name: "Catholic Migration Services",
-    languages: ['Has access to interpretation in any language'],
+    languages: ['Interpretation services for any language'],
     address: "47-01 Queens Boulevard Suite 201, Sunnyside, NY 11104",
     borough: "Queens",
     phone: "(347) 472-3500",
