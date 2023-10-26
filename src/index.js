@@ -76,12 +76,15 @@ $(document).ready(() => {
         if (e.target.tagName === 'A' || $parent.length && e.target.tagName !== 'svg') return;
         $('body').removeClass('show-overlay');
     });
-    $('select').on('change', function() {
-        const value = this.value;
-        const type = $(this).data('type');
-        filteredCbos = value ?
-            activeCbos.filter((cbo) => cbo[type].includes(value)) :
-            activeCbos;
+    $('select').on('change', () => {
+        filteredCbos = activeCbos;
+        $('#settings-overlay select').each(function() {
+            const value = this.value;
+            const type = $(this).data('type');
+            filteredCbos = value ?
+                filteredCbos.filter((cbo) => cbo[type].includes(value)) :
+                filteredCbos;
+        });
         updateOrgList();
     });
 });
