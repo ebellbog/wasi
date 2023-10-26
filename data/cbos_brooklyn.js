@@ -46,7 +46,7 @@ export default [
   },
   {
     name: "Catholic Migration Services",
-    languages: ['Has access to interpretation in any language'],
+    languages: ['Interpretation in any language'],
     address: "191 Joralemon St. 4th Floor, Brooklyn, NY 11201",
     borough: "Brooklyn",
     phone: "(718) 236-3000",

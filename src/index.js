@@ -106,7 +106,7 @@ function initTranslation() {
 function showOrgs(filterType) {
     $('body').removeClass('show-body');
     setTimeout(() => {
-        $('#filter-wrapper').hide();
+        $('#filter-wrapper, #welcome-text').hide();
 
         activeCbos = filteredCbos = allCbos.filter((data) => data.description.includes(filterType));
 
@@ -114,6 +114,7 @@ function showOrgs(filterType) {
         updateLanguageList();
 
         $('#cbo-wrapper').show();
+        $('body').scrollTop(285);
 
         setTimeout(() => $('body').addClass('show-body'), 5);
     }, 750)
@@ -125,7 +126,7 @@ function showFilters(updateFunc) {
     });
 
     setTimeout(() => {
-        $('#filter-wrapper').show();
+        $('#filter-wrapper, #welcome-text').show();
         $('#cbo-wrapper').hide();
         if (updateFunc) updateFunc();
         setTimeout(() => $('body').addClass('show-body'), 5);
