@@ -34,7 +34,14 @@ $(document).ready(() => {
     });
 
     $('#logo-wrapper').on('click', () => {
-        $('body').animate({scrollTop: 0}, 600, showFilters);
+        const $body = $('body');
+        if ($body.hasClass('show-cbo')) {
+            showFilters(() => {
+                $body.animate({scrollTop: 0}, 600);
+            });
+        } else {
+            $body.animate({scrollTop: 0}, 600);
+        }
     });
 
     $(document).on('scroll', () => {
@@ -42,7 +49,7 @@ $(document).ready(() => {
     });
     setTimeout(() => $('body').scrollTop(0), 100);
 
-    $('#clear-filter').on('click', () => {
+    $('#back-btn').on('click', () => {
         showFilters(() => {
             const maxScroll =  $('body')[0].scrollHeight;
             $('body').scrollTop(maxScroll - 900);
@@ -52,6 +59,11 @@ $(document).ready(() => {
         $('body')
             .removeClass('show-info')
             .addClass('show-settings show-overlay');
+    });
+    $('#clear-filters').on('click', () => {
+        $('select').each(function() {
+            $(this)[0].selectize.setValue('');
+        });
     });
 
     $('#about-btn').on('click', () => {
