@@ -57,7 +57,7 @@ body {
     z-index: 3;
     bottom: .6em;
     right: .6em;
-    opacity: .7;
+    opacity: .8;
 }
 .VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-yAWNEb-L7lbkb, #goog-gt-vt {
     display: none;
@@ -219,33 +219,24 @@ body {
     #cbo-footer {
         position: fixed;
         left: 0;
-        bottom: 38px;
+        bottom: 0;
+        padding: .4em;
 
         width: 100%;
-        text-align: center;
 
         .footer-btn {
             display: inline-block;
             cursor: pointer;
-            font-weight: @boldWeight;
 
-            padding: .5em .75em;
+            padding: .15em 1.5em;
             margin: .2em;
-            min-width: 118px;
 
-            border-radius: 2em;
-            border: 2px solid white;
+            border: 1px solid #ddd;
+            color: #444;
+            background-color: fade(whitesmoke, 90%);
+            font-size: .9em;
 
-            filter: drop-shadow(0px 0px 6px fade(black, 30%));
-
-            color: white;
-        }
-        #edit-filters {
-            background-color: fade(gray, 60%);
-            &:hover {
-                background-color: white;
-                color: gray;
-            }
+            filter: drop-shadow(0 0 4px fade(black, 15%));
         }
     }
 }

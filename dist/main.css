@@ -33,7 +33,7 @@ body.show-filter #filter-wrapper {
   z-index: 3;
   bottom: 0.6em;
   right: 0.6em;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .VIpgJd-ZVi9od-ORHb-OEVmcd,
 .VIpgJd-yAWNEb-L7lbkb,
@@ -175,28 +175,20 @@ body.show-filter #filter-wrapper {
 #cbo-wrapper #cbo-footer {
   position: fixed;
   left: 0;
-  bottom: 38px;
+  bottom: 0;
+  padding: 0.4em;
   width: 100%;
-  text-align: center;
 }
 #cbo-wrapper #cbo-footer .footer-btn {
   display: inline-block;
   cursor: pointer;
-  font-weight: 800;
-  padding: 0.5em 0.75em;
+  padding: 0.15em 1.5em;
   margin: 0.2em;
-  min-width: 118px;
-  border-radius: 2em;
-  border: 2px solid white;
-  filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.3));
-  color: white;
-}
-#cbo-wrapper #cbo-footer #edit-filters {
-  background-color: rgba(128, 128, 128, 0.6);
-}
-#cbo-wrapper #cbo-footer #edit-filters:hover {
-  background-color: white;
-  color: gray;
+  border: 1px solid #ddd;
+  color: #444;
+  background-color: rgba(245, 245, 245, 0.9);
+  font-size: 0.9em;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.15));
 }
 .cbo-card {
   border-radius: 0.6em;
