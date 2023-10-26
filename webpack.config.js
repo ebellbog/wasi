@@ -42,7 +42,7 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 {
-                    test: /\.less$/,
+                    test: /\.(less|css)$/,
                     use: [
                         argv.mode === 'production' ?
                             MiniCssExtractPlugin.loader :

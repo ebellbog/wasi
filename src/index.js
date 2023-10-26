@@ -11,8 +11,8 @@ import CboManhattan from '../data/cbos_manhattan';
 import CboBronx from '../data/cbos_bronx';
 import CboStaten from '../data/cbos_staten';
 
-import 'jquery-ui';
 import '@selectize/selectize';
+import '@selectize/selectize/dist/css/selectize.css'
 
 const allCbos = [...CboNyc, ...CboBrooklyn, ...CboQueens, ...CboManhattan, ...CboBronx, ...CboStaten];
 let activeCbos, filteredCbos;
@@ -20,6 +20,11 @@ activeCbos = filteredCbos = allCbos;
 
 $(document).ready(() => {
     setTimeout(initTranslation, 100);
+    $('select').selectize({
+        maxItems: null,
+        onChange: onSelectizeChange,
+        plugins: ['remove_button']
+    });
 
     $('.filter-btn').on('click', (e) => {
         const filterType = $(e.currentTarget).data('filter');
@@ -68,20 +73,28 @@ $(document).ready(() => {
         if (e.target.tagName === 'A' || $parent.length && e.target.tagName !== 'svg') return;
         $('body').removeClass('show-overlay');
     });
-    $('select').on('change', () => {
-        filteredCbos = activeCbos;
-
-        $('#settings-overlay select').each(function() {
-            const value = this.value;
-            const type = $(this).data('type');
-            filteredCbos = value ?
-                filteredCbos.filter((cbo) => cbo[type]?.includes(value)) :
-                filteredCbos;
-        });
-
-        updateOrgList();
-    });
 });
+
+function onSelectizeChange() {
+    filteredCbos = activeCbos;
+
+    $('#settings-overlay select').each(function() {
+        const $this = $(this);
+
+        const value = $this[0].selectize.getValue();
+        if (!value?.length) return;
+
+        const type = $(this).data('type');
+        filteredCbos = filteredCbos.filter((cbo) => {
+            const cboValue = cbo[type];
+            if (!cboValue?.length) return true;
+            if (Array.isArray(cboValue)) return cboValue.some((entity) => value.includes(entity));
+            return value.includes(cboValue);
+        });
+    });
+
+    updateOrgList();
+}
 
 function initTranslation() {
     new google.translate.TranslateElement(
@@ -107,7 +120,9 @@ function showOrgs(filterType) {
 }
 function showFilters(updateFunc) {
     $('body').removeClass('show-body');
-    $('select').val('');
+    $('select').each(function() {
+        $(this)[0].selectize.setValue('');
+    });
 
     setTimeout(() => {
         $('#filter-wrapper').show();
@@ -128,16 +143,19 @@ function updateOrgList() {
 
 function updateLanguageList() {
     const filteredLanguages = new Set(activeCbos.map((cbo) => cbo.languages).flat());
+
     const $languageSetting = $('#language-setting');
+    const languageSel = $languageSetting[0].selectize;
 
-    const prevLanguage = $languageSetting.val();
-    $languageSetting.find('option:not(:first-child').remove();
+    languageSel.clearOptions();
 
-    Array.from(filteredLanguages).sort().forEach((language) => {
-        if (language.length < 20) {
-            $languageSetting.append($('<option>').html(language));
-        }
+    const newOptions = Array.from(filteredLanguages)
+        .sort().filter((language) => language.length < 20)
+        .map((option) => ({text: option, value: option}));
+    newOptions.unshift({
+        text: 'Any',
+        value: null,
     });
 
-    $languageSetting.val(prevLanguage);
+    languageSel.addOption(newOptions);
 }
