@@ -25,7 +25,8 @@ $(document).ready(() => {
     $('select').selectize({
         maxItems: null,
         onChange: onSelectizeChange,
-        plugins: ['remove_button']
+        plugins: ['remove_button'],
+        placeholder: ' —'
     });
 
     $('.filter-btn').on('click', (e) => {
@@ -178,10 +179,6 @@ function updateLanguageList() {
     const newOptions = Array.from(filteredLanguages)
         .sort().filter((language) => language.length < 20)
         .map((option) => ({text: option, value: option}));
-    newOptions.unshift({
-        text: 'Any',
-        value: null,
-    });
 
     languageSel.addOption(newOptions);
 }

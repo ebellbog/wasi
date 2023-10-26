@@ -71,14 +71,12 @@
                 <h2>Filters</h2>
                 <div class="setting-group">
                     <label>Language:</label>
-                    <select id="language-setting" data-type="languages">
-                        <option value=""> Any </option>
-                    </select>
+                    <select id="language-setting" data-type="languages"></select>
                 </div>
-                <div class="setting-group">
+                <div id="borough-group" class="setting-group">
                     <label>Borough:</label>
-                    <select id="borough-setting" data-type="borough">
-                        <option value=""> Any </option>
+                    <select id="borough-setting" data-type="borough" class="notranslate">
+                        <option value="">&nbsp;&mdash;</option>
                         <option> Manhattan </option>
                         <option> Brooklyn </option>
                         <option> Queens </option>
