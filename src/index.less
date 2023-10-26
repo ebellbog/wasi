@@ -427,15 +427,20 @@ body {
             text-align: right;
         }
         select {
-            width: 195px;
             padding: 4px;
             font-family: @mainFont;
             font-size: .8em;
-            border-radius: @borderRadius;
             cursor: pointer;
         }
-        .selectize-input a {
-            color: gray;
+        .selectize-control {
+            display: inline-block;
+            width: 195px;
+        }
+        .selectize-input {
+            border-radius: @borderRadius;
+            a {
+                color: gray;
+            }
         }
     }
 
@@ -456,8 +461,9 @@ body {
             label {
                 text-align: left;
             }
-            select {
+            .selectize-control {
                 display: block;
+                width: 100%;
             }
         }
     }

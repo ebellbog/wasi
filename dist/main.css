@@ -351,12 +351,17 @@ body.show-body #filter-wrapper {
   text-align: right;
 }
 #overlay-wrapper #settings-overlay select {
-  width: 195px;
   padding: 4px;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 0.8em;
-  border-radius: 0.6em;
   cursor: pointer;
+}
+#overlay-wrapper #settings-overlay .selectize-control {
+  display: inline-block;
+  width: 195px;
+}
+#overlay-wrapper #settings-overlay .selectize-input {
+  border-radius: 0.6em;
 }
 #overlay-wrapper #settings-overlay .selectize-input a {
   color: gray;
@@ -373,8 +378,9 @@ body.show-body #filter-wrapper {
   #overlay-wrapper #settings-overlay label {
     text-align: left;
   }
-  #overlay-wrapper #settings-overlay select {
+  #overlay-wrapper #settings-overlay .selectize-control {
     display: block;
+    width: 100%;
   }
 }
 
