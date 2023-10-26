@@ -179,6 +179,10 @@ function updateLanguageList() {
     const newOptions = Array.from(filteredLanguages)
         .sort().filter((language) => language.length < 20)
         .map((option) => ({text: option, value: option}));
+    newOptions.unshift({
+        text: ' —',
+        value: null,
+    });
 
     languageSel.addOption(newOptions);
 }
