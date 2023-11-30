@@ -74,7 +74,7 @@ $(document).ready(() => {
     });
     $('#overlay-wrapper').on('click', (e) => {
         const $target = $(e.target);
-        const $parent = $target.closest('#settings-overlay');
+        const $parent = $target.closest('#settings-overlay, #info-overlay');
         if (e.target.tagName === 'A' || $parent.length && !['svg', 'path'].includes(e.target.tagName)) return;
         $('body').removeClass('show-overlay');
     });

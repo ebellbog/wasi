@@ -25,6 +25,9 @@ body.show-cbo #back-btn:hover {
 body.show-filter #filter-wrapper {
   opacity: 1;
 }
+body a.no-underline {
+  text-decoration: none;
+}
 #spacer {
   height: 22em;
 }
